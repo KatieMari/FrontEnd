@@ -1,31 +1,118 @@
-.App {
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
   font-family: 'Arial', sans-serif;
-  text-align: center;
-  padding: 2rem;
   background-color: #f0f8ff;
   color: #333;
 }
 
+/* Center everything vertically + horizontally */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main App container */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+/* Header */
 header {
+  text-align: center;
   margin-bottom: 2rem;
 }
 
-h1 {
+header h1 {
   color: #0077b6;
+  margin-bottom: 0.5rem;
 }
 
-section {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-  background: white;
-  padding: 1.5rem;
+header p {
+  font-size: 1.1rem;
+  color: #023e8a;
+}
+
+/* Form styling */
+.water-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-footer {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #666;
+.water-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: #023e8a;
+}
+
+.water-form input,
+.water-form select {
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+.water-form button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #0077b6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.water-form button:hover {
+  background-color: #0096c7;
+}
+
+/* Results container */
+.results {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #e0f7fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.results h2 {
+  color: #0077b6;
+  margin-bottom: 0.5rem;
+}
+
+.results p,
+.results ul {
+  font-size: 1rem;
+}
+
+.results li {
+  margin-bottom: 0.3rem;
 }
