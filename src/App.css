@@ -1,100 +1,380 @@
-/* 🌊 Global Page Styling */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #e0f7fa; /* pastel baby blue */
-  margin: 0;
-  padding: 0;
+/* ================================
+   🎨 Theme Variables
+   ================================ */
+:root {
+  --water-dark: #0077b6;
+  --water-mid: #0096c7;
+  --water-light: #caf0f8;
+  --water-bg: #f0fbff;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
 }
 
-/* 🌊 NAVIGATION BAR */
+/* ================================
+   🌊 Overall Theme
+   ================================ */
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #e6f7ff 0%, #f7fcff 100%);
+  color: #023e8a;
+  position: relative;
+}
+
+/* ================================
+   🌊 Navigation Bar
+   ================================ */
 .navbar {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  background-color: #b3e5fc; /* soft blue */
+  gap: 2rem;
   padding: 1rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  border-radius: 0 0 20px 20px;
+  background: var(--water-light);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 20px var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 .navbar a {
   text-decoration: none;
-  color: #0077b6;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
+  color: var(--water-dark);
+  font-weight: 600;
+  padding: 0.6rem 1rem;
   border-radius: 12px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .navbar a:hover {
-  background-color: #81d4fa;
-  color: #ffffff;
+  background: var(--water-mid);
+  color: white;
+  box-shadow: 0 4px 10px var(--shadow);
 }
 
-/* 🌊 PAGE CONTAINER (centers content) */
+/* ================================
+   🌊 Page Layout
+   ================================ */
 .page-container {
-  max-width: 750px;
-  margin: 2rem auto; /* ⬅ THIS centers the entire content block */
-  background-color: #ffffff;
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  background: var(--card-bg);
+  border-radius: 30px;
+  box-shadow: 0 10px 30px var(--shadow);
+  animation: fadeIn 0.6s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 🌊 HEADERS */
-.page-container h1,
-.page-container h2 {
+.page-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px var(--shadow);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================================
+   🌊 Headers
+   ================================ */
+.page-container h1 {
   text-align: center;
-  color: #0077b6;
-  margin-bottom: 1rem;
+  font-size: 2.8rem;
+  background: linear-gradient(to right, var(--water-dark), var(--water-mid));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
 }
 
-/* 🌊 LISTS */
-.page-container ul {
-  padding-left: 1.2rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #023e8a;
+.page-container h2 {
+  color: var(--water-dark);
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
-/* 🌊 LINKS */
-.page-container a {
-  color: #0069c0;
-  font-weight: bold;
-}
-
-.page-container a:hover {
-  color: #0096c7;
-}
-
-/* 🌊 FORM ELEMENTS (for calculator) */
+/* ================================
+   🌊 Form Styling
+   ================================ */
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.4rem;
 }
 
-input, select {
-  padding: 0.8rem;
-  border-radius: 12px;
-  border: 2px solid #b3e5fc;
-  background-color: #f1fbff;
+label {
+  font-weight: 600;
+  color: var(--water-dark);
+}
+
+input,
+select {
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 2px solid var(--water-light);
+  background: white; /* white inputs & dropdowns */
   font-size: 1rem;
+  transition: border 0.2s ease;
 }
 
+input:focus,
+select:focus {
+  border-color: var(--water-mid);
+  outline: none;
+}
+
+/* ================================
+   🌊 Buttons
+   ================================ */
 button {
-  background-color: #0077b6;
+  background: linear-gradient(135deg, var(--water-dark), var(--water-mid));
   color: white;
-  border: none;
+  font-size: 1.1rem;
   padding: 0.9rem;
-  border-radius: 12px;
+  border-radius: 14px;
+  border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
 button:hover {
-  background-color: #0096c7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* ================================
+   🌊 Lists
+   ================================ */
+ul {
+  padding-left: 1.4rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* ================================
+   🌊 Responsive Design
+   ================================ */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .page-container {
+    margin: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .page-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .page-container h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ======================================================
+   🌊 Calculator Layout & Alignment
+   ====================================================== */
+
+.calculator-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Form card */
+.calculator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background: var(--water-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px var(--shadow);
+  border: 1px solid var(--water-light);
+}
+
+.calculator-form h3 {
+  margin-top: 0;
+  text-align: center;
+  color: var(--water-dark);
+}
+
+/* Field alignment */
+.calculator-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Labels on the left */
+.calculator-field label {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--water-dark);
+}
+
+/* Inputs/dropdowns on the right */
+.calculator-field input,
+.calculator-field select {
+  flex: 1.2;
+  max-width: 260px;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 2px solid var(--water-light);
+  background: white;
+  font-size: 1rem;
+}
+
+/* Results card */
+.calculator-results {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px var(--shadow);
+  border-left: 6px solid var(--water-mid);
+}
+
+/* Chart card inside calculator results */
+.chart-card {
+  margin-top: 1.5rem;
+  padding: 1.2rem 1rem;
+  border-radius: 18px;
+  background: var(--water-bg);
+  box-shadow: 0 4px 14px var(--shadow);
+}
+
+/* Mobile: fields stack cleanly */
+@media (max-width: 600px) {
+  .calculator-field {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .calculator-field input,
+  .calculator-field select {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .calculator-form {
+    padding: 1.4rem;
+  }
+
+  .calculator-results {
+    padding: 1.4rem;
+  }
+}
+
+/* ================================
+   🌊 Hero / Home Page (no wave)
+   ================================ */
+
+.home-page {
+  position: relative;
+}
+
+.hero {
+  position: relative;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #0353a4;
+  max-width: 600px;
+  margin: 0.5rem auto 1rem auto;
+}
+
+.hero-pill {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  background: rgba(202, 240, 248, 0.9);
+  color: #023e8a;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ============================================
+   🌊 REAL FLOATING BACKGROUND BUBBLES
+   ============================================ */
+
+.background-bubbles {
+  position: fixed;
+  inset: 0;  /* fills whole screen */
+  overflow: hidden;
+  z-index: -1; /* behind everything */
+  pointer-events: none;
+}
+
+.bubble-bg {
+  position: absolute;
+  border-radius: 50%;
+  /* soft translucent 3D bubble */
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.95) 0,
+    rgba(255, 255, 255, 0.6) 20%,
+    rgba(173, 216, 230, 0.5) 40%,
+    rgba(173, 216, 230, 0.15) 65%,
+    rgba(173, 216, 230, 0) 75%
+  );
+  border: 1px solid rgba(173, 216, 230, 0.1);
+  box-shadow:
+    0 0 12px rgba(173, 216, 230, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: floatBubble 18s ease-in-out infinite;
+}
+
+/* inner glossy highlight */
+.bubble-bg::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  top: 18%;
+  left: 20%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.95) 0,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0.9;
+}
+
+
+/* Animation */
+@keyframes floatBubble {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
 }

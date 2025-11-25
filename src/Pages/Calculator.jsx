@@ -1,4 +1,16 @@
 import { useState } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function Calculator() {
   const [formData, setFormData] = useState({
@@ -9,129 +21,145 @@ function Calculator() {
   });
 
   const [result, setResult] = useState(null);
+  const [error, setError] = useState("");
 
-  // handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // handle form submit (for now: do calculation in frontend)
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    const showersPerWeekNum = Number(formData.showersPerWeek);
-    const avgShowerMinutesNum = Number(formData.avgShowerMinutes);
-    const laundryLoadsPerWeekNum = Number(formData.laundryLoadsPerWeek);
+    try {
+      const res = await fetch("http://localhost:3000/api/calculate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const LITERS_PER_MIN_SHOWER = 10;
-    const LITERS_PER_LAUNDRY = 50;
+      if (!res.ok) {
+        throw new Error("Server error");
+      }
 
-    const showersPerDay = showersPerWeekNum / 7;
-    const showerLitres = showersPerDay * avgShowerMinutesNum * LITERS_PER_MIN_SHOWER;
-
-    const laundryPerDay = laundryLoadsPerWeekNum / 7;
-    const laundryLitres = laundryPerDay * LITERS_PER_LAUNDRY;
-
-    const dietMultiplier = {
-      "plant-based": 0.8,
-      balanced: 1.0,
-      "meat-heavy": 1.3,
-    }[formData.diet];
-
-    const total = Math.round((showerLitres + laundryLitres) * dietMultiplier);
-
-    const advice = [];
-    if (showerLitres > 80) {
-      advice.push("Try shorter showers to reduce water use.");
-    } else {
-      advice.push("Your shower usage is fairly reasonable.");
+      const data = await res.json();
+      setResult(data);
+    } catch (err) {
+      console.error(err);
+      setError("Something went wrong talking to the server.");
     }
-
-    if (formData.diet === "meat-heavy") {
-      advice.push("Reducing meat intake slightly can lower your water footprint.");
-    } else {
-      advice.push("Your diet has a moderate water impact.");
-    }
-
-    setResult({
-      totalLitresPerDay: total,
-      breakdown: { showerLitres, laundryLitres, dietMultiplier },
-      advice,
-    });
   };
+
+  // Chart: Showers vs Laundry
+  const breakdownChartData = result
+    ? {
+        labels: ["Showers", "Laundry"],
+        datasets: [
+          {
+            label: "Litres per day",
+            data: [
+              Math.round(result.breakdown.showerLitres),
+              Math.round(result.breakdown.laundryLitres),
+            ],
+          },
+        ],
+      }
+    : null;
 
   return (
     <div className="page-container">
       <h2>Water Usage Calculator</h2>
       <p>Enter your weekly habits to estimate your daily water footprint.</p>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          Showers per week:
-          <input
-            type="number"
-            name="showersPerWeek"
-            value={formData.showersPerWeek}
-            onChange={handleChange}
-            required
-          />
-        </label>
+      <div className="calculator-container">
+        {/* FORM */}
+        <form className="calculator-form" onSubmit={handleSubmit}>
+          <h3>Your Weekly Water Habits</h3>
 
-        <label>
-          Average shower length (minutes):
-          <input
-            type="number"
-            name="avgShowerMinutes"
-            value={formData.avgShowerMinutes}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <div className="calculator-field">
+            <label>🚿 Showers per week:</label>
+            <input
+              type="number"
+              name="showersPerWeek"
+              value={formData.showersPerWeek}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <label>
-          Laundry loads per week:
-          <input
-            type="number"
-            name="laundryLoadsPerWeek"
-            value={formData.laundryLoadsPerWeek}
-            onChange={handleChange}
-            required
-          />
-        </label>
+          <div className="calculator-field">
+            <label>⏱️ Average shower length (minutes):</label>
+            <input
+              type="number"
+              name="avgShowerMinutes"
+              value={formData.avgShowerMinutes}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <label>
-          Diet type:
-          <select name="diet" value={formData.diet} onChange={handleChange}>
-            <option value="plant-based">Plant-based</option>
-            <option value="balanced">Balanced</option>
-            <option value="meat-heavy">Meat-heavy</option>
-          </select>
-        </label>
+          <div className="calculator-field">
+            <label>🧺 Laundry loads per week:</label>
+            <input
+              type="number"
+              name="laundryLoadsPerWeek"
+              value={formData.laundryLoadsPerWeek}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button type="submit">Calculate</button>
-      </form>
+          <div className="calculator-field">
+            <label>🥗 Diet type:</label>
+            <select
+              name="diet"
+              value={formData.diet}
+              onChange={handleChange}
+            >
+              <option value="plant-based">Plant-based</option>
+              <option value="balanced">Balanced</option>
+              <option value="meat-heavy">Meat-heavy</option>
+            </select>
+          </div>
 
-      {result && (
-        <div style={{ marginTop: "2rem" }}>
-          <h3>Your Estimated Daily Water Use</h3>
-          <p>
-            <strong>Total:</strong> {result.totalLitresPerDay} litres/day
-          </p>
-          <p>
-            <strong>Breakdown:</strong><br />
-            Showers: {Math.round(result.breakdown.showerLitres)} L/day<br />
-            Laundry: {Math.round(result.breakdown.laundryLitres)} L/day<br />
-            Diet multiplier: {result.breakdown.dietMultiplier}
-          </p>
-          <p><strong>Advice:</strong></p>
-          <ul>
-            {result.advice.map((tip, index) => (
-              <li key={index}>{tip}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+          <button type="submit">Calculate</button>
+        </form>
+
+        {/* ERROR */}
+        {error && (
+          <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>
+        )}
+
+        {/* RESULTS + CHART */}
+        {result && (
+          <div className="calculator-results">
+            <h3>Your Estimated Daily Water Use</h3>
+            <p><strong>Total:</strong> {result.totalLitresPerDay} litres/day</p>
+
+            <h4>Breakdown</h4>
+            <ul>
+              <li>Showers: {Math.round(result.breakdown.showerLitres)} L/day</li>
+              <li>Laundry: {Math.round(result.breakdown.laundryLitres)} L/day</li>
+              <li>Diet Multiplier: {result.breakdown.dietMultiplier}</li>
+            </ul>
+
+            {breakdownChartData && (
+              <div className="chart-card">
+                <h4>Showers vs Laundry</h4>
+                <Bar data={breakdownChartData} />
+              </div>
+            )}
+
+            <h4>Personalised Advice</h4>
+            <ul>
+              {result.advice.map((tip, i) => (
+                <li key={i}>{tip}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
