@@ -1,118 +1,100 @@
-/* Reset some default styles */
-* {
-  box-sizing: border-box;
+/* 🌊 Global Page Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e0f7fa; /* pastel baby blue */
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f8ff;
-  color: #333;
-}
-
-/* Center everything vertically + horizontally */
-body {
+/* 🌊 NAVIGATION BAR */
+.navbar {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 1.5rem;
+  background-color: #b3e5fc; /* soft blue */
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 0 0 20px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* Main App container */
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  padding: 2rem;
-}
-
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-header h1 {
+.navbar a {
+  text-decoration: none;
   color: #0077b6;
-  margin-bottom: 0.5rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-header p {
+.navbar a:hover {
+  background-color: #81d4fa;
+  color: #ffffff;
+}
+
+/* 🌊 PAGE CONTAINER (centers content) */
+.page-container {
+  max-width: 750px;
+  margin: 2rem auto; /* ⬅ THIS centers the entire content block */
+  background-color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 🌊 HEADERS */
+.page-container h1,
+.page-container h2 {
+  text-align: center;
+  color: #0077b6;
+  margin-bottom: 1rem;
+}
+
+/* 🌊 LISTS */
+.page-container ul {
+  padding-left: 1.2rem;
   font-size: 1.1rem;
+  line-height: 1.6;
   color: #023e8a;
 }
 
-/* Form styling */
-.water-form {
+/* 🌊 LINKS */
+.page-container a {
+  color: #0069c0;
+  font-weight: bold;
+}
+
+.page-container a:hover {
+  color: #0096c7;
+}
+
+/* 🌊 FORM ELEMENTS (for calculator) */
+form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 100%;
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.water-form label {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  color: #023e8a;
-}
-
-.water-form input,
-.water-form select {
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  background-color: #f9f9f9;
-  color: #000;
-}
-
-.water-form button {
+input, select {
   padding: 0.8rem;
-  border: none;
-  border-radius: 6px;
+  border-radius: 12px;
+  border: 2px solid #b3e5fc;
+  background-color: #f1fbff;
+  font-size: 1rem;
+}
+
+button {
   background-color: #0077b6;
   color: white;
-  font-weight: bold;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
-  margin-top: 0.5rem;
 }
 
-.water-form button:hover {
+button:hover {
   background-color: #0096c7;
-}
-
-/* Results container */
-.results {
-  width: 100%;
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background-color: #e0f7fa;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.results h2 {
-  color: #0077b6;
-  margin-bottom: 0.5rem;
-}
-
-.results p,
-.results ul {
-  font-size: 1rem;
-}
-
-.results li {
-  margin-bottom: 0.3rem;
 }
