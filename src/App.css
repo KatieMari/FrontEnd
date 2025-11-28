@@ -1,81 +1,184 @@
 /* ================================
-   🎨 Theme Variables
+   🎨 Design System / Theme
    ================================ */
 :root {
-  --water-dark: #0077b6;
-  --water-mid: #0096c7;
-  --water-light: #caf0f8;
-  --water-bg: #f0fbff;
-  --card-bg: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.08);
+  --bg-body: #e8f4ff;          /* soft water background base */
+  --bg-body-soft: #f6fbff;     /* lighter blend */
+
+  --card-bg: #ffffff;          /* white cards */
+  --card-border: #e5e7eb;
+
+  --text-main: #0f172a;        /* slate-900 */
+  --text-muted: #6b7280;
+
+  --accent: #2563eb;           /* modern blue */
+  --accent-soft: #38bdf8;      /* cyan accent */
+  --accent-subtle: #dbeafe;    /* pale blue */
+
+  --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.18);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.12);
 }
 
 /* ================================
-   🌊 Overall Theme
+   🌊 Global Body + Typography Base
    ================================ */
 body {
   margin: 0;
-  font-family: "Inter", "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #e6f7ff 0%, #f7fcff 100%);
-  color: #023e8a;
+  font-family: "Inter", system-ui, sans-serif;
+  background: linear-gradient(
+    180deg,
+    #e8f4ff 0%,
+    #f6fbff 40%,
+    #edf5ff 100%
+  );
+  color: var(--text-main);
   position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* HEADINGS — Poppins */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--text-main);
+}
+
+/* BODY TEXT — Merriweather Sans */
+p,
+li,
+span,
+a,
+.content-text {
+  font-family: "Merriweather Sans", system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+  color: var(--text-main);
+}
+
+/* UI TEXT — Inter (forms, buttons, nav bar) */
+input,
+select,
+button,
+.navbar a,
+label {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 500;
+}
+
+/* Heading sizes (modern scale) */
+h1 {
+  font-size: 2.6rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+h4 {
+  font-size: 1.1rem;
 }
 
 /* ================================
-   🌊 Navigation Bar
+   🌊 Background Bubbles (clean, abstract)
+   ================================ */
+.background-bubbles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Modern “flat blue bubble” style */
+.bubble-bg {
+  position: absolute;
+  border-radius: 50%;
+  background: #8cd3ff; /* clean bubble blue */
+  box-shadow:
+    inset -12px -18px 0 rgba(0, 0, 0, 0.05),  /* soft shading at bottom */
+    inset 8px 10px 0 rgba(255, 255, 255, 0.5); /* bright highlight at top */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  animation: floatBubble 18s ease-in-out infinite;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-40px) translateX(15px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* ================================
+   🌊 Navigation
    ================================ */
 .navbar {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  padding: 1rem 0;
-  background: var(--water-light);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 6px 20px var(--shadow);
+  gap: 2.4rem;
+  padding: 1rem 2rem;
+
+  /* light glassy water look */
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(200, 220, 255, 0.35);
+  box-shadow: 0 8px 20px rgba(120, 160, 200, 0.18);
+
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 10;
 }
 
 .navbar a {
   text-decoration: none;
-  color: var(--water-dark);
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  transition: 0.3s ease;
+  color: #5f87d8;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  transition: 0.2s ease;
 }
 
 .navbar a:hover {
-  background: var(--water-mid);
-  color: white;
-  box-shadow: 0 4px 10px var(--shadow);
+  background: rgba(37, 99, 235, 0.15);
+  color: #f9fafb;
 }
 
 /* ================================
-   🌊 Page Layout
+   🌊 Page Container / Layout
    ================================ */
 .page-container {
-  max-width: 900px;
+  max-width: 960px;
   margin: 3rem auto;
-  padding: 3rem 2rem;
+  padding: 2.5rem 2.3rem;
   background: var(--card-bg);
-  border-radius: 30px;
-  box-shadow: 0 10px 30px var(--shadow);
-  animation: fadeIn 0.6s ease;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 28px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease;
 }
 
-.page-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 35px var(--shadow);
-}
-
-@keyframes fadeIn {
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -83,28 +186,53 @@ body {
   }
 }
 
+
+
+
+.page-container > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ================================
-   🌊 Headers
+   🌊 Headings / Typography in cards
    ================================ */
 .page-container h1 {
   text-align: center;
-  font-size: 2.8rem;
-  background: linear-gradient(to right, var(--water-dark), var(--water-mid));
-  background-clip: text;
+  font-size: 2.4rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(to right, var(--accent), var(--accent-soft));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1.5rem;
 }
 
 .page-container h2 {
-  color: var(--water-dark);
-  font-size: 1.9rem;
-  margin-bottom: 0.5rem;
   text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.page-container h3 {
+  font-size: 1.1rem;
+  margin: 0.4rem 0;
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-main);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+.muted {
+  color: var(--text-muted);
 }
 
 /* ================================
-   🌊 Form Styling
+   🌊 Form Styling (global)
    ================================ */
 form {
   display: flex;
@@ -113,91 +241,78 @@ form {
 }
 
 label {
-  font-weight: 600;
-  color: var(--water-dark);
+  font-weight: 500;
+  color: var(--text-main);
+  font-size: 0.96rem;
 }
 
 input,
 select {
-  padding: 0.9rem 1rem;
-  border-radius: 14px;
-  border: 2px solid var(--water-light);
-  background: white; /* white inputs & dropdowns */
-  font-size: 1rem;
-  transition: border 0.2s ease;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 0.95rem;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
 }
 
 input:focus,
 select:focus {
-  border-color: var(--water-mid);
   outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+  background: #ffffff;
 }
 
 /* ================================
    🌊 Buttons
    ================================ */
 button {
-  background: linear-gradient(135deg, var(--water-dark), var(--water-mid));
-  color: white;
-  font-size: 1.1rem;
-  padding: 0.9rem;
-  border-radius: 14px;
+  align-self: flex-start;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #f9fafb;
+  font-size: 0.98rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 12px var(--shadow);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    filter 0.16s ease;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 35px rgba(37, 99, 235, 0.5);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
 }
 
 /* ================================
    🌊 Lists
    ================================ */
 ul {
-  padding-left: 1.4rem;
+  padding-left: 1.3rem;
   line-height: 1.6;
-  font-size: 1.1rem;
+  font-size: 0.98rem;
+  color: var(--text-main);
 }
 
 /* ================================
-   🌊 Responsive Design
+   🌊 Calculator Layout
    ================================ */
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .page-container {
-    margin: 1.5rem;
-    padding: 2rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar a {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .page-container {
-    margin: 1rem;
-    padding: 1.5rem;
-  }
-
-  .page-container h1 {
-    font-size: 2rem;
-  }
-}
-
-/* ======================================================
-   🌊 Calculator Layout & Alignment
-   ====================================================== */
-
 .calculator-container {
   display: flex;
   flex-direction: column;
@@ -209,17 +324,19 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
-  background: var(--water-bg);
-  padding: 2rem;
+  background: #f9fafb;
+  padding: 1.9rem;
   border-radius: 20px;
-  box-shadow: 0 6px 16px var(--shadow);
-  border: 1px solid var(--water-light);
+  border: 1px solid #e5e7eb;
 }
 
 .calculator-form h3 {
   margin-top: 0;
-  text-align: center;
-  color: var(--water-dark);
+  text-align: left;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
 }
 
 /* Field alignment */
@@ -227,49 +344,189 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1.6rem;
 }
 
-/* Labels on the left */
 .calculator-field label {
   flex: 1;
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--water-dark);
 }
 
-/* Inputs/dropdowns on the right */
 .calculator-field input,
 .calculator-field select {
   flex: 1.2;
   max-width: 260px;
-  padding: 0.8rem 1rem;
-  border-radius: 12px;
-  border: 2px solid var(--water-light);
-  background: white;
-  font-size: 1rem;
 }
 
 /* Results card */
 .calculator-results {
-  background: white;
-  padding: 2rem;
+  background: #f9fafb;
+  padding: 1.9rem;
   border-radius: 20px;
-  box-shadow: 0 6px 20px var(--shadow);
-  border-left: 6px solid var(--water-mid);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
 }
 
-/* Chart card inside calculator results */
+.calculator-results h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+/* Chart wrapper */
 .chart-card {
-  margin-top: 1.5rem;
-  padding: 1.2rem 1rem;
-  border-radius: 18px;
-  background: var(--water-bg);
-  box-shadow: 0 4px 14px var(--shadow);
+  margin-top: 1.2rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px dashed #dbeafe;
 }
 
-/* Mobile: fields stack cleanly */
-@media (max-width: 600px) {
+/* ================================
+   🌊 Charities Page
+   ================================ */
+.charities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.7rem;
+  margin-top: 2rem;
+}
+
+.charity-card {
+  background: #f9fafb;
+  border-radius: 20px;
+  padding: 1.5rem 1.5rem 1.8rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.charity-logo-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+.charity-logo-box {
+  background: #ffffff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.charity-logo {
+  max-width: 130px;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.charity-card h3 {
+  font-size: 1.05rem;
+}
+
+.charity-country {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.charity-description {
+  font-size: 0.93rem;
+  color: var(--text-main);
+  margin-top: 0.3rem;
+}
+
+.charity-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.charity-links a {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-subtle);
+  color: var(--accent);
+  text-decoration: none;
+  background: #ffffff;
+  transition: 0.18s ease;
+}
+
+.charity-links a:hover {
+  background: var(--accent);
+  color: #f9fafb;
+  border-color: transparent;
+}
+
+/* ================================
+   🌊 Home Hero
+   ================================ */
+.home-page {
+  position: relative;
+}
+
+.hero {
+  margin-bottom: 1.7rem;
+}
+
+.hero-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0.3rem auto 0.9rem auto;
+}
+
+.hero-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(180, 200, 240, 0.5);
+
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  text-transform: uppercase;
+}
+
+
+/* ================================
+   🌊 Responsive Tweaks
+   ================================ */
+@media (max-width: 768px) {
+  .navbar {
+    gap: 1.2rem;
+    padding-inline: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .page-container {
+    margin: 1.6rem 1rem 2rem;
+    padding: 2rem 1.5rem;
+  }
+
   .calculator-field {
     flex-direction: column;
     align-items: flex-start;
@@ -280,101 +537,19 @@ ul {
     max-width: 100%;
     width: 100%;
   }
+}
 
-  .calculator-form {
-    padding: 1.4rem;
+@media (max-width: 480px) {
+  .page-container {
+    margin: 1.1rem 0.7rem 1.6rem;
+    padding: 1.7rem 1.3rem;
   }
 
-  .calculator-results {
-    padding: 1.4rem;
+  .page-container h1 {
+    font-size: 2rem;
   }
-}
 
-/* ================================
-   🌊 Hero / Home Page (no wave)
-   ================================ */
-
-.home-page {
-  position: relative;
-}
-
-.hero {
-  position: relative;
-  padding-bottom: 2rem;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #0353a4;
-  max-width: 600px;
-  margin: 0.5rem auto 1rem auto;
-}
-
-.hero-pill {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  background: rgba(202, 240, 248, 0.9);
-  color: #023e8a;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* ============================================
-   🌊 REAL FLOATING BACKGROUND BUBBLES
-   ============================================ */
-
-.background-bubbles {
-  position: fixed;
-  inset: 0;  /* fills whole screen */
-  overflow: hidden;
-  z-index: -1; /* behind everything */
-  pointer-events: none;
-}
-
-.bubble-bg {
-  position: absolute;
-  border-radius: 50%;
-  /* soft translucent 3D bubble */
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.95) 0,
-    rgba(255, 255, 255, 0.6) 20%,
-    rgba(173, 216, 230, 0.5) 40%,
-    rgba(173, 216, 230, 0.15) 65%,
-    rgba(173, 216, 230, 0) 75%
-  );
-  border: 1px solid rgba(173, 216, 230, 0.1);
-  box-shadow:
-    0 0 12px rgba(173, 216, 230, 0.5),
-    inset 0 0 10px rgba(255, 255, 255, 0.8);
-  animation: floatBubble 18s ease-in-out infinite;
-}
-
-/* inner glossy highlight */
-.bubble-bg::after {
-  content: "";
-  position: absolute;
-  width: 40%;
-  height: 40%;
-  top: 18%;
-  left: 20%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.95) 0,
-    rgba(255, 255, 255, 0) 70%
-  );
-  opacity: 0.9;
-}
-
-
-/* Animation */
-@keyframes floatBubble {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-40px); }
-  100% { transform: translateY(0); }
+  .navbar a {
+    font-size: 0.85rem;
+  }
 }

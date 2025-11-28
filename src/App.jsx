@@ -11,18 +11,17 @@ function App() {
     <Router>
 
       <div className="background-bubbles">
-        
-        <div className="bubble-bg" style={{ width: "160px", height: "160px", top: "10%", left: "5%", animationDelay: "0s" }}></div>
-        <div className="bubble-bg" style={{ width: "120px", height: "120px", top: "60%", left: "15%", animationDelay: "3s" }}></div>
-        <div className="bubble-bg" style={{ width: "200px", height: "200px", top: "30%", right: "10%", animationDelay: "5s" }}></div>
-        <div className="bubble-bg" style={{ width: "90px", height: "90px", top: "75%", right: "25%", animationDelay: "1s" }}></div>
-        <div className="bubble-bg" style={{ width: "140px", height: "140px", top: "5%", right: "35%", animationDelay: "7s" }}></div>
-        <div className="bubble-bg" style={{ width: "70px", height: "70px", top: "20%", left: "40%", animationDelay: "2.5s" }}></div>
-        <div className="bubble-bg" style={{ width: "180px", height: "180px", bottom: "15%", right: "15%", animationDelay: "6s" }}></div>
-        <div className="bubble-bg" style={{ width: "90px", height: "90px", top: "70%", left: "60%", animationDelay: "1.2s" }}></div>
-        <div className="bubble-bg" style={{ width: "130px", height: "130px", top: "40%", right: "5%", animationDelay: "3.8s" }}></div>
-        <div className="bubble-bg" style={{ width: "50px", height: "50px", bottom: "8%", left: "20%", animationDelay: "0.5s" }}></div>
 
+        <div className="bubble-bg" style={{ width: "110px", height: "110px", top: "8%", left: "6%", animationDelay: "0s" }}></div>
+        <div className="bubble-bg" style={{ width: "60px", height: "60px", top: "18%", left: "14%", animationDelay: "3s" }}></div>
+        <div className="bubble-bg" style={{ width: "140px", height: "140px", top: "10%", right: "8%", animationDelay: "1.5s" }}></div>
+        <div className="bubble-bg" style={{ width: "70px", height: "70px", top: "24%", right: "18%", animationDelay: "4.5s" }}></div>
+        <div className="bubble-bg" style={{ width: "90px", height: "90px", top: "45%", left: "4%", animationDelay: "2.2s" }}></div>
+        <div className="bubble-bg" style={{ width: "90px", height: "90px", top: "52%", right: "6%", animationDelay: "5.2s" }}></div>
+        <div className="bubble-bg" style={{ width: "130px", height: "130px", bottom: "6%", left: "10%", animationDelay: "1s" }}></div>
+        <div className="bubble-bg" style={{ width: "70px", height: "70px", bottom: "14%", left: "25%", animationDelay: "3.7s" }}></div>
+        <div className="bubble-bg" style={{ width: "150px", height: "150px", bottom: "5%", right: "12%", animationDelay: "6.3s" }}></div>
+        <div className="bubble-bg" style={{ width: "60px", height: "60px", bottom: "18%", right: "25%", animationDelay: "2.8s" }}></div>
       </div>
 
       <nav className="navbar">

@@ -78,7 +78,7 @@ function Calculator() {
           <h3>Your Weekly Water Habits</h3>
 
           <div className="calculator-field">
-            <label>🚿 Showers per week:</label>
+            <label>Showers per week:</label>
             <input
               type="number"
               name="showersPerWeek"
@@ -89,7 +89,7 @@ function Calculator() {
           </div>
 
           <div className="calculator-field">
-            <label>⏱️ Average shower length (minutes):</label>
+            <label>Average shower length (minutes):</label>
             <input
               type="number"
               name="avgShowerMinutes"
@@ -100,7 +100,7 @@ function Calculator() {
           </div>
 
           <div className="calculator-field">
-            <label>🧺 Laundry loads per week:</label>
+            <label>Laundry loads per week:</label>
             <input
               type="number"
               name="laundryLoadsPerWeek"
@@ -111,7 +111,7 @@ function Calculator() {
           </div>
 
           <div className="calculator-field">
-            <label>🥗 Diet type:</label>
+            <label>Diet type:</label>
             <select
               name="diet"
               value={formData.diet}
