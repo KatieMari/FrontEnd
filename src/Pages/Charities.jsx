@@ -13,7 +13,7 @@ function Charities() {
       description:
         "WaterAid works with local communities to provide clean drinking water...",
       website: "https://www.wateraid.org",
-      learnMore: "https://www.wateraid.org/uk/our-work/where-we-work",
+      learnMore: "https://www.wateraid.org/uk/donate/monthly",
     },
     {
       name: "charity: water",
@@ -22,7 +22,7 @@ function Charities() {
       description:
         "charity: water funds clean water projects in developing countries...",
       website: "https://www.charitywater.org",
-      learnMore: "https://www.charitywater.org/our-work",
+      learnMore: "https://www.charitywater.org/uk/donate",
     },
     {
       name: "UNICEF – WASH Programme",
