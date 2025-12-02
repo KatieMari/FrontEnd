@@ -1,14 +1,6 @@
 import { useState } from "react";
 import { Bar } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -51,20 +43,17 @@ function Calculator() {
     }
   };
 
-  // Chart: Showers vs Laundry
-  const breakdownChartData = result
-    ? {
-        labels: ["Showers", "Laundry"],
-        datasets: [
-          {
-            label: "Litres per day",
-            data: [
-              Math.round(result.breakdown.showerLitres),
-              Math.round(result.breakdown.laundryLitres),
-            ],
-          },
-        ],
-      }
+  const breakdownChartData = result ? {
+    labels: ["Showers", "Laundry"],
+    datasets: [{
+      label: "Litres per day",
+      data: [
+        Math.round(result.breakdown.showerLitres),
+        Math.round(result.breakdown.laundryLitres),
+      ]
+    },
+    ],
+  }
     : null;
 
   return (
@@ -73,7 +62,6 @@ function Calculator() {
       <p>Enter your weekly habits to estimate your daily water footprint.</p>
 
       <div className="calculator-container">
-        {/* FORM */}
         <form className="calculator-form" onSubmit={handleSubmit}>
           <h3>Your Weekly Water Habits</h3>
 
@@ -126,12 +114,10 @@ function Calculator() {
           <button type="submit">Calculate</button>
         </form>
 
-        {/* ERROR */}
         {error && (
           <p style={{ color: "red", marginTop: "1rem" }}>{error}</p>
         )}
 
-        {/* RESULTS + CHART */}
         {result && (
           <div className="calculator-results">
             <h3>Your Estimated Daily Water Use</h3>
@@ -163,5 +149,4 @@ function Calculator() {
     </div>
   );
 }
-
 export default Calculator;

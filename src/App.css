@@ -1,43 +1,37 @@
-/* ================================
-   🎨 Design System / Theme
-   ================================ */
+/* Base Styles */
 :root {
-  --bg-body: #e8f4ff;          /* soft water background base */
-  --bg-body-soft: #f6fbff;     /* lighter blend */
+  --bg-body: #e8f4ff;
+  --bg-body-soft: #f6fbff;
 
-  --card-bg: #ffffff;          /* white cards */
+  --card-bg: #ffffff;
   --card-border: #e5e7eb;
 
-  --text-main: #0f172a;        /* slate-900 */
+  --text-main: #0f172a;
   --text-muted: #6b7280;
 
-  --accent: #2563eb;           /* modern blue */
-  --accent-soft: #38bdf8;      /* cyan accent */
-  --accent-subtle: #dbeafe;    /* pale blue */
+  --accent: #2563eb;
+  --accent-soft: #38bdf8;
+  --accent-subtle: #dbeafe;
 
   --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.18);
   --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.12);
 }
 
-/* ================================
-   🌊 Global Body + Typography Base
-   ================================ */
+/* Body Styles */
 body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
-  background: linear-gradient(
-    180deg,
-    #e8f4ff 0%,
-    #f6fbff 40%,
-    #edf5ff 100%
-  );
+  background: linear-gradient(180deg,
+      #e8f4ff 0%,
+      #f6fbff 40%,
+      #edf5ff 100%);
   color: var(--text-main);
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* HEADINGS — Poppins */
+/* Heading Styles */
 h1,
 h2,
 h3,
@@ -51,7 +45,7 @@ h6 {
   color: var(--text-main);
 }
 
-/* BODY TEXT — Merriweather Sans */
+/* Font Styling - Merriweather Sans */
 p,
 li,
 span,
@@ -64,7 +58,7 @@ a,
   color: var(--text-main);
 }
 
-/* UI TEXT — Inter (forms, buttons, nav bar) */
+/* Font Styling  - Inter */
 input,
 select,
 button,
@@ -74,23 +68,24 @@ label {
   font-weight: 500;
 }
 
-/* Heading sizes (modern scale) */
+/* Font Size */
 h1 {
   font-size: 2.6rem;
 }
+
 h2 {
   font-size: 2rem;
 }
+
 h3 {
   font-size: 1.4rem;
 }
+
 h4 {
   font-size: 1.1rem;
 }
 
-/* ================================
-   🌊 Background Bubbles (clean, abstract)
-   ================================ */
+/* Bubbles */
 .background-bubbles {
   position: fixed;
   inset: 0;
@@ -99,40 +94,39 @@ h4 {
   pointer-events: none;
 }
 
-/* Modern “flat blue bubble” style */
 .bubble-bg {
   position: absolute;
   border-radius: 50%;
-  background: #8cd3ff; /* clean bubble blue */
+  background: #8cd3ff;
   box-shadow:
-    inset -12px -18px 0 rgba(0, 0, 0, 0.05),  /* soft shading at bottom */
-    inset 8px 10px 0 rgba(255, 255, 255, 0.5); /* bright highlight at top */
+    inset -12px -18px 0 rgba(0, 0, 0, 0.05),
+    inset 8px 10px 0 rgba(255, 255, 255, 0.5);
   border: 2px solid rgba(255, 255, 255, 0.3);
   animation: floatBubble 18s ease-in-out infinite;
 }
 
+/* Animation for Bubbles */
 @keyframes floatBubble {
   0% {
     transform: translateY(0) translateX(0);
   }
+
   50% {
     transform: translateY(-40px) translateX(15px);
   }
+
   100% {
     transform: translateY(0) translateX(0);
   }
 }
 
-/* ================================
-   🌊 Navigation
-   ================================ */
+/* Navigation Styling */
 .navbar {
   display: flex;
   justify-content: center;
   gap: 2.4rem;
   padding: 1rem 2rem;
 
-  /* light glassy water look */
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(200, 220, 255, 0.35);
@@ -159,9 +153,7 @@ h4 {
   color: #f9fafb;
 }
 
-/* ================================
-   🌊 Page Container / Layout
-   ================================ */
+/* Container Styling */
 .page-container {
   max-width: 960px;
   margin: 3rem auto;
@@ -180,23 +172,18 @@ h4 {
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-
-
-
-.page-container > * {
+.page-container>* {
   position: relative;
   z-index: 1;
 }
 
-/* ================================
-   🌊 Headings / Typography in cards
-   ================================ */
 .page-container h1 {
   text-align: center;
   font-size: 2.4rem;
@@ -227,13 +214,7 @@ p {
   font-size: 0.98rem;
 }
 
-.muted {
-  color: var(--text-muted);
-}
-
-/* ================================
-   🌊 Form Styling (global)
-   ================================ */
+/* Form Styling */
 form {
   display: flex;
   flex-direction: column;
@@ -267,9 +248,7 @@ select:focus {
   background: #ffffff;
 }
 
-/* ================================
-   🌊 Buttons
-   ================================ */
+/* Button Styling */
 button {
   align-self: flex-start;
   background: linear-gradient(135deg, var(--accent), var(--accent-soft));
@@ -300,9 +279,6 @@ button:active {
   box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
 }
 
-/* ================================
-   🌊 Lists
-   ================================ */
 ul {
   padding-left: 1.3rem;
   line-height: 1.6;
@@ -310,16 +286,13 @@ ul {
   color: var(--text-main);
 }
 
-/* ================================
-   🌊 Calculator Layout
-   ================================ */
+/* Calculator Styling */
 .calculator-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* Form card */
 .calculator-form {
   display: flex;
   flex-direction: column;
@@ -339,7 +312,6 @@ ul {
   color: var(--text-muted);
 }
 
-/* Field alignment */
 .calculator-field {
   display: flex;
   justify-content: space-between;
@@ -357,7 +329,6 @@ ul {
   max-width: 260px;
 }
 
-/* Results card */
 .calculator-results {
   background: #f9fafb;
   padding: 1.9rem;
@@ -372,7 +343,6 @@ ul {
   font-size: 1rem;
 }
 
-/* Chart wrapper */
 .chart-card {
   margin-top: 1.2rem;
   padding: 1rem;
@@ -381,9 +351,7 @@ ul {
   border: 1px dashed #dbeafe;
 }
 
-/* ================================
-   🌊 Charities Page
-   ================================ */
+/* Charity Styling */
 .charities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -468,9 +436,7 @@ ul {
   border-color: transparent;
 }
 
-/* ================================
-   🌊 Home Hero
-   ================================ */
+/* Home Styling */
 .home-page {
   position: relative;
 }
@@ -487,34 +453,6 @@ ul {
   margin: 0.3rem auto 0.9rem auto;
 }
 
-.hero-pill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(180, 200, 240, 0.5);
-
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
-  text-transform: uppercase;
-}
-
-
-/* ================================
-   🌊 Responsive Tweaks
-   ================================ */
 @media (max-width: 768px) {
   .navbar {
     gap: 1.2rem;

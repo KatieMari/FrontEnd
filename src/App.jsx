@@ -11,7 +11,6 @@ function App() {
     <Router>
 
       <div className="background-bubbles">
-
         <div className="bubble-bg" style={{ width: "110px", height: "110px", top: "8%", left: "6%", animationDelay: "0s" }}></div>
         <div className="bubble-bg" style={{ width: "60px", height: "60px", top: "18%", left: "14%", animationDelay: "3s" }}></div>
         <div className="bubble-bg" style={{ width: "140px", height: "140px", top: "10%", right: "8%", animationDelay: "1.5s" }}></div>
@@ -39,8 +38,6 @@ function App() {
         <Route path="/ways-to-help" element={<WaysToHelp />} />
         <Route path="/charities" element={<Charities />} />
       </Routes>
-
-
 
     </Router>
   );

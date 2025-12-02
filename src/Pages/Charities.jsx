@@ -2,8 +2,6 @@ import wateraidLogo from "../assets/wateraidLogo.png";
 import charitywaterLogo from "../assets/charitywaterLogo.webp";
 import unicefLogo from "../assets/unicefLogo.png";
 
-
-
 function Charities() {
   const charities = [
     {
@@ -22,7 +20,7 @@ function Charities() {
       description:
         "charity: water funds clean water projects in developing countries...",
       website: "https://www.charitywater.org",
-      learnMore: "https://www.charitywater.org/uk/donate",
+      learnMore: "https://www.charitywater.org/uk/donate   ",
     },
     {
       name: "UNICEF – WASH Programme",
@@ -33,9 +31,7 @@ function Charities() {
       website: "https://www.unicef.org/wash",
       learnMore: "https://www.unicef.org/wash/water",
     },
-
   ];
-
 
   return (
     <div className="page-container">
@@ -43,22 +39,21 @@ function Charities() {
       <p style={{ textAlign: "center", maxWidth: "650px", margin: "0 auto 2rem" }}>
         These organisations work towards Sustainable Development Goal 6 by improving access
         to clean water, sanitation and hygiene around the world. You can explore their work
-        and donate if you’d like to support them.
+        and donate if you would like to support them.
       </p>
 
       <div className="charities-grid">
         {charities.map((charity) => (
           <article className="charity-card" key={charity.name}>
             <div className="charity-logo-wrap">
-  <div className="charity-logo-box">
-    <img
-      src={charity.img}
-      alt={`${charity.name} logo`}
-      className="charity-logo"
-    />
-  </div>
-</div>
-
+              <div className="charity-logo-box">
+                <img
+                  src={charity.img}
+                  alt={`${charity.name} logo`}
+                  className="charity-logo"
+                />
+              </div>
+            </div>
 
             <h3>{charity.name}</h3>
             <p className="charity-country">{charity.country}</p>
