@@ -25,7 +25,7 @@ function Calculator() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:3000/api/calculate", {
+      const res = await fetch("https://back-end-eight-drab.vercel.app/api/calculate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
