@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Calculator from "./pages/Calculator";
-import Facts from "./pages/Facts";
-import WaysToHelp from "./pages/WaysToHelp";
-import Charities from "./pages/Charities";
+import Home from "./Pages/Home";
+import Calculator from "./Pages/Calculator";
+import Facts from "./Pages/Facts";
+import WaysToHelp from "./Pages/WaysToHelp";
+import Charities from "./Pages/Charities";
 import "./App.css";
 
 function App() {
