@@ -23,7 +23,7 @@ function Charities() {
       learnMore: "https://www.charitywater.org/uk/donate   ",
     },
     {
-      name: "UNICEF – WASH Programme",
+      name: "UNICEF:  WASH Programme",
       country: "Global",
       img: unicefLogo,
       description:
