@@ -13,7 +13,7 @@ function Home() {
       <section style={{ marginTop: "2rem" }}>
         <h2>About This Project</h2>
         <p> This website was created as part of the Full Stack Development for Sustainability module.
-          It uses a React frontend and an Express backend to help people understand their water footprint and
+          It uses a Vite React Frontend and an Express Backend to help people understand their water footprint and
           learn simple ways to reduce it. </p>
       </section>
 

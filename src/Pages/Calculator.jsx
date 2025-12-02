@@ -4,6 +4,10 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
+const backEndURL = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+
+
+
 function Calculator() {
   const [formData, setFormData] = useState({
     showersPerWeek: "",
@@ -25,7 +29,7 @@ function Calculator() {
     setError("");
 
     try {
-      const res = await fetch("https://back-end-eight-drab.vercel.app/api/calculate", {
+      const res = await fetch(`${backEndURL}/api/calculate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
