@@ -1,7 +1,10 @@
+// Import Logos for the Charities
 import wateraidLogo from "../assets/wateraidLogo.png";
 import charitywaterLogo from "../assets/charitywaterLogo.webp";
 import unicefLogo from "../assets/unicefLogo.png";
 
+// Array of Charity Objects
+// Each Object Contains the Charity's Name, Location Focus, Logo, Description, Website, and a Link to Learn More or Donate
 function Charities() {
   const charities = [
     {
@@ -35,7 +38,8 @@ function Charities() {
 
   return (
     <div className="page-container">
-      <h2>Charities Supporting Clean Water (SDG 6)</h2>
+      <h2>Charities Supporting Clean Water</h2>
+      {/* Intro Paragraph Explaining the Purpose of the Page */}
       <p style={{ textAlign: "center", maxWidth: "650px", margin: "0 auto 2rem" }}>
         These organisations work towards Sustainable Development Goal 6 by improving access
         to clean water, sanitation and hygiene around the world. You can explore their work
@@ -69,7 +73,7 @@ function Charities() {
           </article>
         ))}
       </div>
-
+        {/* Footer Disclaimer about Donating Responcibly */}
       <p style={{ marginTop: "2rem", fontSize: "0.95rem", textAlign: "center" }}>
         Always check that a charity aligns with your values and is transparent about how
         donations are used.

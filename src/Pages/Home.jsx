@@ -1,5 +1,6 @@
 function Home() {
   return (
+    // Main Container for the Home Page
     <div className="page-container home-page">
       <div className="hero">
         <h1>My Water Footprint</h1>

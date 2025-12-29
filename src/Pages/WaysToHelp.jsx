@@ -1,19 +1,80 @@
+import applicanceImg from "../assets/appliances.jpg";
+import foodWasteImg from "../assets/foodWaste.jpg";
+import leakImg from "../assets/leaksFix.jpg";
+import showerShortImg from "../assets/showershort.png";
+import tapImg from "../assets/tapOff.jpg";
+
 function WaysToHelp() {
   return (
-    <div className="page-container">
+    <div className="page-container info-page">
       <h2>Ways You Can Help</h2>
-      <p>Small changes in daily habits can make a big difference to global water sustainability.</p>
-      <ul>
-        <li>Take shorter showers or use a low-flow showerhead.</li>
-        <li>Turn off the tap while brushing your teeth or washing dishes.</li>
-        <li>Only run full loads in the washing machine or dishwasher.</li>
-        <li>Fix leaking taps, toilets, or pipes as soon as possible.</li>
-        <li>Choose more plant-based meals to reduce the water footprint of your diet.</li>
-        <li>Avoid wasting food, as producing it uses large amounts of water.</li>
-        <li>Support policies and initiatives that protect rivers, lakes, and wetlands.</li>
-      </ul>
-      <p>
-        Even simple actions, when repeated and shared, can help move us closer to achieving Goal 6.
+
+      <p className="muted" style={{ marginBottom: "1.5rem" }}>
+        Small changes in daily habits can make a big difference to global water sustainability.
+      </p>
+
+      <div className="info-section">
+        <div className="info-text">
+          <h3>Reduce Shower Water Useage</h3>
+          <p>
+            Take shorter showers or use a low-flow showerhead to significantly reduce water consumption.
+          </p>
+        </div>
+        <div className="info-image">
+          <img src={showerShortImg} alt="Saving water in the shower" />
+        </div>
+      </div>
+
+      <div className="info-section">
+        <div className="info-text">
+          <h3>Turn off Taps when Not Needed</h3>
+          <p>
+            Turning off the tap while brushing your teeth or washing dishes saves litres of water every day.
+          </p>
+        </div>
+        <div className="info-image">
+          <img src={tapImg} alt="Turn Taps Off" />
+        </div>
+      </div>
+
+      <div className="info-section">
+        <div className="info-text">
+          <h3>Use Appliances Efficiently</h3>
+          <p>
+            Only run full loads in washing machines or dishwashers to avoid unnecessary water use.
+          </p>
+        </div>
+        <div className="info-image">
+          <img src={applicanceImg} alt="Only use Applicances when Full" />
+        </div>
+      </div>
+
+      <div className="info-section">
+        <div className="info-text">
+          <h3>Fix Leaks Quickly</h3>
+          <p>
+            Repair leaking taps, toilets, or pipes as soon as possible to prevent wasted water.
+          </p>
+        </div>
+        <div className="info-image">
+          <img src={leakImg} alt="Fix Leaks Quickly" />
+        </div>
+      </div>
+
+      <div className="info-section">
+        <div className="info-text">
+          <h3>Make Sustainable Food Choices</h3>
+          <p>
+            Eating more plant-based meals and avoiding food waste can greatly reduce your water footprint.
+          </p>
+        </div>
+        <div className="info-image">
+          <img src={foodWasteImg} alt="Reduce Food Waste" />
+        </div>
+      </div>
+
+      <p style={{ marginTop: "1.6rem" }}>
+        Even simple actions, when repeated and shared, can help move us closer to achieving Sustainable Development Goal 6.
       </p>
     </div>
   );
