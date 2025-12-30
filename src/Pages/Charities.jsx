@@ -73,7 +73,7 @@ function Charities() {
           </article>
         ))}
       </div>
-        {/* Footer Disclaimer about Donating Responcibly */}
+      {/* Footer Disclaimer about Donating Responcibly */}
       <p style={{ marginTop: "2rem", fontSize: "0.95rem", textAlign: "center" }}>
         Always check that a charity aligns with your values and is transparent about how
         donations are used.
