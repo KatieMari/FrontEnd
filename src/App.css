@@ -27,6 +27,7 @@ body {
       #edf5ff 100%);
   color: var(--text-main);
   position: relative;
+  /* Improves Text Rendering */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -179,6 +180,7 @@ h4 {
   }
 }
 
+/* Ensures Content Appears above Decorative Elements */
 .page-container>* {
   position: relative;
   z-index: 1;
@@ -492,17 +494,12 @@ ul {
   }
 }
 
-/* ======================================================
-   📘 Facts & Ways To Help — Compact Editorial Layout
-   ====================================================== */
 
-/* Wrap your Facts / Ways pages in this */
 .info-page {
   max-width: 760px;
   margin: 0 auto;
 }
 
-/* Each fact / tip row */
 .info-section {
   display: grid;
   grid-template-columns: 1fr 160px;
@@ -517,7 +514,7 @@ ul {
   border-bottom: none;
 }
 
-/* Text block */
+
 .info-text h3 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
@@ -546,6 +543,7 @@ ul {
   object-fit: cover;
 }
 
+/* Responsive Stacking for Smaller Screens */
 @media (max-width: 640px) {
   .info-section {
     grid-template-columns: 1fr;

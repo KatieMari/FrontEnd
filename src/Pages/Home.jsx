@@ -11,6 +11,7 @@ function Home() {
 
       </div>
 
+      {/* Section Describing the Project and its Purpose */}
       <section style={{ marginTop: "2rem" }}>
         <h2>About This Project</h2>
         <p> This website was created as part of the Full Stack Development for Sustainability module.
@@ -18,6 +19,7 @@ function Home() {
           learn simple ways to reduce it. </p>
       </section>
 
+      {/* Section Explaining how to Navigate and use the Website */}
       <section style={{ marginTop: "2rem" }}>
         <h2>How to Use the Site</h2>
 

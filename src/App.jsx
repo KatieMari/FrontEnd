@@ -1,16 +1,23 @@
+// React Router Components for Client-Side Navigation
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+// Import Page Components
 import Home from "./Pages/Home";
 import Calculator from "./Pages/Calculator";
 import Facts from "./Pages/Facts";
 import WaysToHelp from "./Pages/WaysToHelp";
 import Charities from "./Pages/Charities";
+
+// Global Application Styles
 import "./App.css";
 
+// Router Enables Navigation without Full Page Reloads
 function App() {
   return (
     <Router>
 
       <div className="background-bubbles">
+        {/* Each Bubble uses Inline Styles for Unique Size, Position, and Animation Delay */}
         <div className="bubble-bg" style={{ width: "110px", height: "110px", top: "8%", left: "6%", animationDelay: "0s" }}></div>
         <div className="bubble-bg" style={{ width: "60px", height: "60px", top: "18%", left: "14%", animationDelay: "3s" }}></div>
         <div className="bubble-bg" style={{ width: "140px", height: "140px", top: "10%", right: "8%", animationDelay: "1.5s" }}></div>
@@ -23,7 +30,9 @@ function App() {
         <div className="bubble-bg" style={{ width: "60px", height: "60px", bottom: "18%", right: "25%", animationDelay: "2.8s" }}></div>
       </div>
 
+      {/* Primary Nav Bar */}
       <nav className="navbar">
+        {/* Client-Side Nav Links */}
         <Link to="/">Home</Link>
         <Link to="/calculator">Calculator</Link>
         <Link to="/facts">Facts</Link>
@@ -31,6 +40,7 @@ function App() {
         <Link to="/charities">Charities</Link>
       </nav>
 
+      {/* Route Config Mapping URLs to Pages */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/calculator" element={<Calculator />} />

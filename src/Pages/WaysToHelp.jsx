@@ -1,3 +1,4 @@
+// Import Images used to Visually Support each Water Saving Tip
 import applicanceImg from "../assets/appliances.jpg";
 import foodWasteImg from "../assets/foodWaste.jpg";
 import leakImg from "../assets/leaksFix.jpg";
