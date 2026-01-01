@@ -162,8 +162,8 @@ The FrontEnd relies on the following main libraries:
 
 ## Useful Links
 
-[React Documentation](https://react.dev/learn)
-[Vite Documentation](https://v3.vitejs.dev/guide/)
-[React Router Documentation](https://v5.reactrouter.com/web/guides/quick-start)
-[Chart.js Documentation](https://www.chartjs.org/docs/latest/getting-started/)
-[RESTful API](https://aws.amazon.com/what-is/restful-api/)
+- [React Documentation](https://react.dev/learn)
+- [Vite Documentation](https://v3.vitejs.dev/guide/)
+- [React Router Documentation](https://v5.reactrouter.com/web/guides/quick-start)
+- [Chart.js Documentation](https://www.chartjs.org/docs/latest/getting-started/)
+- [RESTful API](https://aws.amazon.com/what-is/restful-api/)
