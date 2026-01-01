@@ -1,6 +1,7 @@
-# My Water Footprint – Frontend
+# My Water Footprint – FrontEnd
 
 This is the **FrontEnd** of the **My Water Footprint** project.
+
 The application supports **UN Sustainable Development Goal 6 (Clean Water and Sanitation)** by helping users understand their personal water usage and learn how to reduce it.
 
 The frontend is built using [React](https://react.dev/) with [Vite](https://vite.dev/) and communicates with an Express backend API.
@@ -9,7 +10,7 @@ The frontend is built using [React](https://react.dev/) with [Vite](https://vite
 
 ## Project Purpose
 
-The frontend provides:
+The **FrontEnd** provides:
 - A water usage **calculator** based on personal habits
 - **Educational content** about global water issues
 - Practical ways users can **reduce water consumption**
@@ -36,6 +37,7 @@ The goal is to combine interactivity, data visualisation, and education into a u
     ```bash
    npm install
    ```
+
 2. (Optional) Configure Environment Variables
 
     - By default the Frontend connects to the Backend at:
@@ -68,24 +70,24 @@ The goal is to combine interactivity, data visualisation, and education into a u
 
 This list contains the main folders for the project.
 
-- Src -> contains all the main pages for the project 
+- Src/ -> contains all the main pages for the project 
 
-    - Pages -> contains the main pages of the website
+    - Pages/ -> contains the main pages of the website
         - **Calculator.jsx** -> Water FootPrint calculator and results display
         - **Charities.jsx** -> Information and links to clean-water charitie
         - **Facts.jsx** -> Key facts about UN Sustainability Development Goal 6
         - **Home.jsx** -> First page introducing the project and its purpose
         - **WaysToHelp.jsx** -> Pratical actions users can take to reduce water usage
 
-- Assets -> contains images and media used throughout the project
+- Assets/ -> contains images and media used throughout the project
 
-- App.css -> contains all the global styling shared across all pages
+- App.css/ -> contains all the global styling shared across all pages
 
-- App.jsx -> contains the routing and navigation
+- App.jsx/ -> contains the routing and navigation
     - Sets up client-side routing using React Router
     - Renders navigation and page content
 
-- Main.jsx -> contains the React entry point
+- Main.jsx/ -> contains the React entry point
     - Mounts the React Application to the DOM
 
 ---
