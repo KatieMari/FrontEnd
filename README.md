@@ -29,25 +29,65 @@ The goal is to combine interactivity, data visualisation, and education into a u
 
 ---
 
+## Getting Started
+
+1. Install Dependancies
+
+    ```bash
+   npm install
+   ```
+2. (Optional) Configure Environment Variables
+    - By default the Frontend connects to the Backend at:
+        - http://localhost:3000
+    
+    - This is defined as a fallback in the code, so no configuration is required for local development.
+    - If you need to change the Backend URL (for exmaple, when deploying), you can create a `.env` file in the project root:
+
+        ```env
+        VITE_BACKEND_URL=http://localhost:3000
+
+    - If the variable is not provided, the application will continue to work using the default URL.L
+
+
+3. Start the app
+
+    ```bash
+    npm run dev
+    ```
+
+
+
+
+
+---
+
 ## Folder Structure
 
 This list contains the main folders for the project.
 
-- src -> contains everything 
+- Src -> contains everything 
     - pages -> contains the **Calculator**, **Charities**, **Facts**, **Home**, and **WaysToHelp** pages.
 
-- assets -> contains images and media
+- Assets -> contains images and media
 
 - App.css -> contains all the global styling
 
 - App.jsx -> contains the routing and navigation
 
-- main.jsx -> contains the React entry point
+- Main.jsx -> contains the React entry point
+
+---
 
 ## API Intergration
 
 The Frontend sends user input via a POST request.
 ```ts
 POST /api/calculate
+```
 
+- The Backend responds with:
+    - Total daily water usage
+    - A breakdown by activity
+    - Personalised advice
+- The Backend URL is configured using an environment variable
 
