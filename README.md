@@ -31,7 +31,7 @@ The goal is to combine interactivity, data visualisation, and education into a u
 
 ## Getting Started
 
-### 1. Install Dependancies
+1. Install Dependancies
 
     ```bash
    npm install
