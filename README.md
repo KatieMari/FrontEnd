@@ -1,6 +1,6 @@
 # My Water Footprint – Frontend
 
-This is the **frontend** of the **My Water Footprint** project.
+This is the **FrontEnd** of the **My Water Footprint** project.
 The application supports **UN Sustainable Development Goal 6 (Clean Water and Sanitation)** by helping users understand their personal water usage and learn how to reduce it.
 
 The frontend is built using [React](https://react.dev/) with [Vite](https://vite.dev/) and communicates with an Express backend API.
@@ -12,8 +12,8 @@ The frontend is built using [React](https://react.dev/) with [Vite](https://vite
 The frontend provides:
 - A water usage **calculator** based on personal habits
 - **Educational content** about global water issues
-- Practical **ways users can reduce water consumption**
-- Links to **charities supporting clean water access**
+- Practical ways users can **reduce water consumption**
+- Links to charities supporting **clean water access**
 
 The goal is to combine interactivity, data visualisation, and education into a user-friendly web experience.
 
@@ -47,7 +47,7 @@ The goal is to combine interactivity, data visualisation, and education into a u
         ```env
         VITE_BACKEND_URL=http://localhost:3000
 
-    - If the variable is not provided, the application will continue to work using the default URL.L
+    - If the variable is not provided, the application will continue to work using the default URL
 
 3. Start the development server
 
@@ -57,10 +57,10 @@ The goal is to combine interactivity, data visualisation, and education into a u
 
 4. Open the app
 
-    After the server starts, Vite will ouput a local development URL, typically:
+    - After the server starts, Vite will ouput a local development URL, typically:
         - http://localhost:5173
 
-    Open this link in your browser to view the application
+    - Open this link in your browser to view the application
 
 ---
 
@@ -90,7 +90,7 @@ This list contains the main folders for the project.
 
 ---
 
-## API Intergration
+## API Intergration and Data Handling
 
 The Frontend sends user input via a POST request.
 ```ts
@@ -101,7 +101,13 @@ POST /api/calculate
     - Total daily water usage
     - A breakdown by activity
     - Personalised advice
+
 - The Backend URL is configured using an environment variable
+
+- All BackEnd communication uses Fetch API
+- API endpoints should clearly named and RESTful
+- BackEnd URLs should not be hardcoded where configuration is required
+- API responces should be handled with basic errot checking
 
 ---
 
@@ -131,3 +137,33 @@ export default function Calculator() {
 - Each page should represent a single route in the applcation
 - Images and media should be placed in the `assets/` directory
 - Global styles should be added to `App.css`
+
+---
+
+## Routing Conventions
+
+- Client-side routing is handled using **React Router**
+- All routes are defined in `App.jsx`
+- Navigation links should use the `Link` component from `react-router-dom`
+
+---
+
+## Dependencies
+
+The FrontEnd relies on the following main libraries:
+
+- [React](https://react.dev/) - Component-based UI development
+- [Vite](https://vite.dev/) -  Development server and build tool
+- [React Router](https://reactrouter.com/) - Client-side routing
+- [Chart.js](https://www.chartjs.org/)/[React-Chartjs-2](https://react-chartjs-2.js.org/) - Data visualisation
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Layout and styling
+
+---
+
+## Useful Links
+
+[React Documentation](https://react.dev/learn)
+[Vite Documentation](https://v3.vitejs.dev/guide/)
+[React Router Documentation](https://v5.reactrouter.com/web/guides/quick-start)
+[Chart.js Documentation](https://www.chartjs.org/docs/latest/getting-started/)
+[RESTful API](https://aws.amazon.com/what-is/restful-api/)
