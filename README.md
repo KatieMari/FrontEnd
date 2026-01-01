@@ -1,18 +1,47 @@
-# React + Vite
+# My Water Footprint – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **frontend** of the **My Water Footprint** project.
+The application supports **UN Sustainable Development Goal 6 (Clean Water and Sanitation)** by helping users understand their personal water usage and learn how to reduce it.
 
-Currently, two official plugins are available:
+The frontend is built using [React](https://react.dev/) with [Vite](https://vite.dev/) and communicates with an Express backend API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Project Purpose
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The frontend provides:
+- A water usage **calculator** based on personal habits
+- **Educational content** about global water issues
+- Practical **ways users can reduce water consumption**
+- Links to **charities supporting clean water access**
 
-## Expanding the ESLint configuration
+The goal is to combine interactivity, data visualisation, and education into a user-friendly web experience.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
 
-can you make me two seperate README.md files, one for thhe front end code and one for the backend code pls, make sure they both explaining the project, how it is organized, and how to run a development instance.
+## Tech Stack
+
+- **React** (component-based UI)
+- **Vite** (fast development and build tool)
+- **React Router** (client-side routing)
+- **Chart.js / react-chartjs-2** (data visualisation)
+- **CSS** (custom styling and layout)
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── Pages/
+│   ├── Home.jsx          # Landing page
+│   ├── Calculator.jsx    # Water usage calculator
+│   ├── Facts.jsx         # UN Goal 6 facts
+│   ├── WaysToHelp.jsx    # Water-saving tips
+│   └── Charities.jsx    # Charity information
+│
+├── assets/               # Images and media
+├── App.jsx               # Routing and navigation
+├── main.jsx              # React entry point
+├── App.css               # Global styles
+└── index.html            # HTML template
