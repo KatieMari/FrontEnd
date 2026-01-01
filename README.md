@@ -37,6 +37,7 @@ The goal is to combine interactivity, data visualisation, and education into a u
    npm install
    ```
 2. (Optional) Configure Environment Variables
+
     - By default the Frontend connects to the Backend at:
         - http://localhost:3000
     
@@ -48,16 +49,18 @@ The goal is to combine interactivity, data visualisation, and education into a u
 
     - If the variable is not provided, the application will continue to work using the default URL.L
 
-
-3. Start the app
+3. Start the development server
 
     ```bash
     npm run dev
     ```
 
+4. Open the app
 
+    After the server starts, Vite will ouput a local development URL, typically:
+        - http://localhost:5173
 
-
+    Open this link in your browser to view the application
 
 ---
 
@@ -65,16 +68,25 @@ The goal is to combine interactivity, data visualisation, and education into a u
 
 This list contains the main folders for the project.
 
-- Src -> contains everything 
-    - pages -> contains the **Calculator**, **Charities**, **Facts**, **Home**, and **WaysToHelp** pages.
+- Src -> contains all the main pages for the project 
 
-- Assets -> contains images and media
+    - Pages -> contains the main pages of the website
+        - **Calculator.jsx** -> Water FootPrint calculator and results display
+        - **Charities.jsx** -> Information and links to clean-water charitie
+        - **Facts.jsx** -> Key facts about UN Sustainability Development Goal 6
+        - **Home.jsx** -> First page introducing the project and its purpose
+        - **WaysToHelp.jsx** -> Pratical actions users can take to reduce water usage
 
-- App.css -> contains all the global styling
+- Assets -> contains images and media used throughout the project
+
+- App.css -> contains all the global styling shared across all pages
 
 - App.jsx -> contains the routing and navigation
+    - Sets up client-side routing using React Router
+    - Renders navigation and page content
 
 - Main.jsx -> contains the React entry point
+    - Mounts the React Application to the DOM
 
 ---
 
@@ -91,3 +103,31 @@ POST /api/calculate
     - Personalised advice
 - The Backend URL is configured using an environment variable
 
+---
+
+## Contribution Rules
+
+### Components and Coding Style
+
+All React components should follow the structure below:
+```ts
+export default function Calculator() {
+  /**
+   * Component logic and JSX
+   */
+}
+```
+- Use `export default` for all pages and components exports
+- Use **function components**, no class components
+- Use **PascalCase** for component and file names
+- The file name should match the component name
+- Use **camelCase** for variables, functions, and props
+
+---
+
+## Writing New Code
+
+- New pages must be added to the `pages/` directory
+- Each page should represent a single route in the applcation
+- Images and media should be placed in the `assets/` directory
+- Global styles should be added to `App.css`
