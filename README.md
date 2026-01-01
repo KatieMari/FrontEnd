@@ -24,24 +24,30 @@ The goal is to combine interactivity, data visualisation, and education into a u
 - **React** (component-based UI)
 - **Vite** (fast development and build tool)
 - **React Router** (client-side routing)
-- **Chart.js / react-chartjs-2** (data visualisation)
+- **Chart.js / React-Chartjs-2** (data visualisation)
 - **CSS** (custom styling and layout)
 
 ---
 
-## 📁 Project Structure
+## Folder Structure
 
-```text
-src/
-├── Pages/
-│   ├── Home.jsx          # Landing page
-│   ├── Calculator.jsx    # Water usage calculator
-│   ├── Facts.jsx         # UN Goal 6 facts
-│   ├── WaysToHelp.jsx    # Water-saving tips
-│   └── Charities.jsx    # Charity information
-│
-├── assets/               # Images and media
-├── App.jsx               # Routing and navigation
-├── main.jsx              # React entry point
-├── App.css               # Global styles
-└── index.html            # HTML template
+This list contains the main folders for the project.
+
+- src -> contains everything 
+    - pages -> contains the **Calculator**, **Charities**, **Facts**, **Home**, and **WaysToHelp** pages.
+
+- assets -> contains images and media
+
+- App.css -> contains all the global styling
+
+- App.jsx -> contains the routing and navigation
+
+- main.jsx -> contains the React entry point
+
+## API Intergration
+
+The Frontend sends user input via a POST request.
+```ts
+POST /api/calculate
+
+
